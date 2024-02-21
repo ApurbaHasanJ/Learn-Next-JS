@@ -12,7 +12,7 @@ const getData = async () => {
 
 const LearnDataFetching = async () => {
   const data = await getData();
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <h2>All Post data here:</h2>
