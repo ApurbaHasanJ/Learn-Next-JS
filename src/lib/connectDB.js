@@ -6,6 +6,8 @@ await dotenv.config();
 const DB_USER = process.env.DB_USER;
 const DB_PASS = process.env.DB_PASS;
 
+
+
 const uri = `mongodb+srv://${DB_USER}:${DB_PASS}@believer.igrxpib.mongodb.net/?retryWrites=true&w=majority`;
 
 export const connectMongoDB = async () => {

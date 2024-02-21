@@ -1,17 +1,30 @@
 import { connectMongoDB } from "@/lib/connectDB";
+import { mongoConnect } from "@/lib/mongooseConnect";
+import { UserModel } from "@/lib/mongooseSchema";
+import { NextResponse } from "next/server";
 
 const create = async (formData) => {
   "use server";
   console.log("formData", formData);
-  const age = Number(formData.get("age"));
-  const client = await connectMongoDB();
-  const usersCollection = client.db("TestDB").collection("Users");
-  const result = await usersCollection.insertOne({
+
+  // using mongodb
+  // const client = await connectMongoDB();
+  // const usersCollection = client.db("TestDB").collection("Users");
+  // const result = await usersCollection.insertOne({
+  //   name: formData.get("name"),
+  //   age: age,
+  //   job: formData.get("job"),
+  // });
+
+  // using mongoose
+  await mongoConnect();
+  const result = await UserModel.create({
     name: formData.get("name"),
-    age: age,
+    age: formData.get("age"),
     job: formData.get("job"),
   });
   console.log("result", result);
+  // return NextResponse.json({ "msg": "User Inserted" }, { status: 201 });
 };
 
 const PostData = () => {

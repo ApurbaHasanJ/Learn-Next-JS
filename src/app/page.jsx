@@ -1,3 +1,4 @@
+import GetById from "@/components/GetById";
 import GetData from "@/components/GetData";
 import LearnDataFetching from "@/components/LearnDataFetching";
 import LearnServerCompo from "@/components/LearnServerCompo";
@@ -7,11 +8,10 @@ import Navbar from "@/components/Navbar";
 import PostData from "@/components/PostData";
 // import UseImage from "@/components/UseImage";
 
-
-export const metadata ={
-  title:"User Data",
-  description:"This is all users data"
-}
+export const metadata = {
+  title: "User Data",
+  description: "This is all users data",
+};
 
 export default function Home() {
   return (
@@ -19,6 +19,7 @@ export default function Home() {
       <Navbar />
       <LearnUseRouter />
       <LearnServerCompo />
+      <GetById />
       <ModuleCSS />
       <PostData />
       <GetData />
